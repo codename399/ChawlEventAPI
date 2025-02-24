@@ -8,13 +8,27 @@ namespace ChawlEventAPI.Extensions
 {
     public static class FeatureServiceExtensions
     {
-        public static void AddFeatureServices(this IServiceCollection services)
+        public static void AddServiceDependencies(this IServiceCollection services)
         {
-            services.AddSingleton<IChawlEventRepository, ChawlEventDetailRepository>();
             services.AddSingleton<IChawlEventDetailService, ChawlEventDetailService>();
+            services.AddSingleton<IContributionService, ContributionService>();
+            services.AddSingleton<IContributorService, ContributorService>();
+            services.AddSingleton<IExpenseAssetService, ExpenseAssetService>();
+            services.AddSingleton<IExpenseService, ExpenseService>();
+            services.AddSingleton<IUserService, UserService>();
         }
 
-        public static void AddSectionConfiguration(this IServiceCollection services, WebApplicationBuilder builder)
+        public static void AddRepositoryDependencies(this IServiceCollection services)
+        {
+            services.AddSingleton<IChawlEventDetailRepository, ChawlEventDetailRepository>();
+            services.AddSingleton<IContributionRepository, ContributionRepository>();
+            services.AddSingleton<IContributorRepository, ContributorRepository>();
+            services.AddSingleton<IExpenseAssetRepository, ExpenseAssetRepository>();
+            services.AddSingleton<IExpenseRepository, ExpenseRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
+        }
+
+        public static void AddConfigurationDependencies(this IServiceCollection services, WebApplicationBuilder builder)
         {
             services.Configure<MongoDatabaseSetting>(builder.Configuration.GetSection("MongoDatabaseSetting"));
         }
