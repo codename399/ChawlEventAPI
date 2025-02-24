@@ -3,7 +3,7 @@ using ChawlEventAPI.Model.Dto;
 using DatabaseRespository.MongoDb;
 using Microsoft.Extensions.Options;
 
-namespace ChawlEventAPI.Repositories.Interfaces
+namespace ChawlEventAPI.Repositories.Abstractions
 {
     public abstract class GlobalRepository<T>
     {

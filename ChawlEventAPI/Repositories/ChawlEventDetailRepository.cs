@@ -1,13 +1,13 @@
 ﻿using ChawlEvent.Model;
 using ChawlEvent.Repositories.Interfaces;
-using ChawlEventAPI.Repositories.Interfaces;
+using ChawlEventAPI.Repositories.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace ChawlEvent.Repositories
 {
-    public class ChawlEventRepository : GlobalRepository<ChawlEventDetail>, IChawlEventRepository
+    public class ChawlEventDetailRepository : GlobalRepository<ChawlEventDetail>, IChawlEventDetailRepository
     {
-        public ChawlEventRepository(IOptions<MongoDatabaseSetting> databaseSetting)
+        public ChawlEventDetailRepository(IOptions<MongoDatabaseSetting> databaseSetting)
             : base(databaseSetting, databaseSetting.Value.ChawlEventDetailCollection)
         {
 

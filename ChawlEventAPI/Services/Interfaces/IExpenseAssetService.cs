@@ -1,0 +1,12 @@
+﻿using ChawlEvent.Model;
+
+namespace ChawlEvent.Services.Interfaces
+{
+    public interface IExpenseAssetService
+    {
+        public HashSet<ExpenseAsset> GetAll();
+        public HashSet<ExpenseAsset> GetById(HashSet<string> ids);
+        public void Add(HashSet<ExpenseAsset> expenseAssets);
+        public void Update(HashSet<ExpenseAsset> expenseAssets);
+    }
+}

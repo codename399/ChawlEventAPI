@@ -1,11 +1,12 @@
 ﻿using ChawlEvent.Model;
 
-namespace ChawlEvent.Services.Interfaces
+namespace ChawlEvent.Repositories.Interfaces
 {
-    public interface IChawlEventService
+    public interface IChawlEventDetailRepository
     {
         public HashSet<ChawlEventDetail> GetAll();
         public HashSet<ChawlEventDetail> GetById(HashSet<string> ids);
         public void Add(HashSet<ChawlEventDetail> chawlEventDetails);
+
     }
 }

@@ -9,6 +9,11 @@ namespace ChawlEvent.Model
         public string? Environment { get; set; }
         public string? DatabaseName { get; set; }
         public string? ChawlEventDetailCollection { get; set; }
+        public string? ContributionCollection { get; set; }
+        public string? ContributorCollection { get; set; }
+        public string? ExpenseCollection { get; set; }
+        public string? ExpenseAssetCollection { get; set; }
+        public string? UserCollection { get; set; }
 
         public static MongoDatabaseSettingDto ToDto(MongoDatabaseSetting databaseSetting)
         {

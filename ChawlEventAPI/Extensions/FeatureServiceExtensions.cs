@@ -10,8 +10,8 @@ namespace ChawlEventAPI.Extensions
     {
         public static void AddFeatureServices(this IServiceCollection services)
         {
-            services.AddSingleton<IChawlEventRepository, ChawlEventRepository>();
-            services.AddSingleton<IChawlEventService, ChawlEventService>();
+            services.AddSingleton<IChawlEventRepository, ChawlEventDetailRepository>();
+            services.AddSingleton<IChawlEventDetailService, ChawlEventDetailService>();
         }
 
         public static void AddSectionConfiguration(this IServiceCollection services, WebApplicationBuilder builder)

@@ -9,11 +9,11 @@ namespace ChawlEvent.Model
         [JsonIgnore]
         [BsonElement("_id")]
         public string Id { get; set; } = Guid.NewGuid().ToString();
-        public int FName { get; set; }
-        public int MName { get; set; }
-        public int LName { get; set; }
-        public int UserName { get; set; }
-        public int Password { get; set; }
+        public string FName { get; set; }
+        public string MName { get; set; }
+        public string LName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public UserType UserType { get; set; }
     }
 }

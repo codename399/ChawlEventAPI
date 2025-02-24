@@ -4,11 +4,11 @@ using ChawlEvent.Services.Interfaces;
 
 namespace ChawlEventAPI.Services
 {
-    public class ChawlEventService : IChawlEventService
+    public class ChawlEventDetailService : IChawlEventDetailService
     {
-        private readonly IChawlEventRepository _chawlEventRepository;
+        private readonly IChawlEventDetailRepository _chawlEventRepository;
 
-        public ChawlEventService(IChawlEventRepository chawlEventRepository)
+        public ChawlEventDetailService(IChawlEventDetailRepository chawlEventRepository)
         {
             _chawlEventRepository = chawlEventRepository;
         }

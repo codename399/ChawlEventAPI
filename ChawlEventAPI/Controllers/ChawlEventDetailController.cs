@@ -6,12 +6,12 @@ namespace ChawlEvent.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ChawlEventController : ControllerBase
+    public class ChawlEventDetailController : ControllerBase
     {
-        private readonly IChawlEventService _chawlEventService;
-        private readonly ILogger<ChawlEventController> _logger;
+        private readonly IChawlEventDetailService _chawlEventService;
+        private readonly ILogger<ChawlEventDetailController> _logger;
 
-        public ChawlEventController(IChawlEventService chawlEventService, ILogger<ChawlEventController> logger)
+        public ChawlEventDetailController(IChawlEventDetailService chawlEventService, ILogger<ChawlEventDetailController> logger)
         {
             _chawlEventService = chawlEventService;
             _logger = logger;
