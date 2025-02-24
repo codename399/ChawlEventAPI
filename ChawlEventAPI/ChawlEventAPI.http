@@ -1,0 +1,6 @@
+@ChawlEvent_HostAddress = http://localhost:5149
+
+GET {{ChawlEvent_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
