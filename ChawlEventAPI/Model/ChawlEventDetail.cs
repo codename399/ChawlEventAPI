@@ -1,9 +1,14 @@
-﻿namespace ChawlEvent.Model
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
+
+namespace ChawlEvent.Model
 {
     public class ChawlEventDetail
     {
-        public int Id { get; set; }
-        public int Name { get; set; }
-        public int Date { get; set; }
+        [JsonIgnore]
+        [BsonElement("_id")]
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Name { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
     }
 }

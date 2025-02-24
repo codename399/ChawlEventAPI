@@ -1,25 +1,36 @@
 ﻿using ChawlEvent.Model;
 using ChawlEvent.Repositories.Interfaces;
-using DatabaseRespository.MongoDb;
+using ChawlEventAPI.Repositories.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace ChawlEvent.Repositories
 {
-    public class ChawlEventRepository : IChawlEventRespository
+    public class ChawlEventRepository : GlobalRepository<ChawlEventDetail>, IChawlEventRepository
     {
-        private IMongoDbRepository<ChawlEventDetail> _mongoDbRepository;
-
-        public ChawlEventRepository()
+        public ChawlEventRepository(IOptions<MongoDatabaseSetting> databaseSetting)
+            : base(databaseSetting, databaseSetting.Value.ChawlEventDetailCollection)
         {
-            _mongoDbRepository = new MongoDbRepository<ChawlEventDetail>(Util.Util.GetConnectionString(),"ChawlEvent");
+
         }
+
         public void Add(HashSet<ChawlEventDetail> chawlEventDetails)
         {
-            throw new NotImplementedException();
+            if (chawlEventDetails is { Count: 0 })
+            {
+                return;
+            }
+
+            _mongoDbRepository.Add(chawlEventDetails);
         }
 
         public HashSet<ChawlEventDetail> GetAll()
         {
-            throw new NotImplementedException();
+            return _mongoDbRepository.GetAll();
+        }
+
+        public HashSet<ChawlEventDetail> GetById(HashSet<string> ids)
+        {
+            return _mongoDbRepository.GetById(ids);
         }
     }
 }

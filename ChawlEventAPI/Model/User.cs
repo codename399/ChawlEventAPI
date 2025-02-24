@@ -1,10 +1,14 @@
 ﻿using ChawlEvent.Model.Enum;
+using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 
 namespace ChawlEvent.Model
 {
     public class User
     {
-        public int Id { get; set; }
+        [JsonIgnore]
+        [BsonElement("_id")]
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public int FName { get; set; }
         public int MName { get; set; }
         public int LName { get; set; }

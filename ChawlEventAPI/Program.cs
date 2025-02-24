@@ -1,4 +1,4 @@
-using ChawlEvent.Model;
+using ChawlEventAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +8,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.Configure<ConnectionConfig>(builder.Configuration.GetSection("ConnectionConfig"));
+builder.Services.AddFeatureServices();
+builder.Services.AddSectionConfiguration(builder);
 
 var app = builder.Build();
 
